@@ -1,0 +1,22 @@
+/* Brand Colors */
+:root {
+  --brand-gold: #E5B80B; /* Brand gold: RGB(229, 184, 11) */
+  --brand-white: #FFFFFF;
+}
+
+body {
+  background: var(--brand-white);
+  color: #111827;
+  font-family: 'Inter', Arial, sans-serif;
+}
+
+.logo-shadow {
+  filter: drop-shadow(0 4px 12px rgba(255, 215, 0, 0.25));
+}
+
+/* Example for gold accent usage */
+.gold-accent {
+  color: var(--brand-gold);
+}
+
+/* Add more visually pleasing styles as needed */
