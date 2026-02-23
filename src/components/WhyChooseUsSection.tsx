@@ -34,15 +34,15 @@ const differentiators = [
 
 export default function WhyChooseUsSection() {
   return (
-    <section style={{ background: '#F5F3FF', padding: '4rem 0' }}>
+    <section style={{ background: '#0d0d0d', padding: '4rem 0' }}>
       <div className="container">
-        <h2 style={{ fontSize: '2rem', color: '#E5B80B', fontWeight: 700, textAlign: 'center', marginBottom: 40, letterSpacing: '0.02em' }}>Why Choose Us?</h2>
+        <h2 style={{ fontSize: '2rem', color: '#D4AF37', fontWeight: 700, textAlign: 'center', marginBottom: 40, letterSpacing: '0.02em' }}>Why Choose Us?</h2>
         <div style={{ display: 'grid', gridTemplateColumns: 'repeat(auto-fit, minmax(220px, 1fr))', gap: 32 }}>
           {differentiators.map((d, i) => (
-            <div key={i} style={{ borderRadius: 16, background: '#fff', boxShadow: '0 4px 24px rgba(229, 184, 11, 0.08)', padding: 32, display: 'flex', flexDirection: 'column', alignItems: 'center', textAlign: 'center', border: '1px solid #E5B80B' }}>
-              <div style={{ fontSize: 32, marginBottom: 16, color: '#E5B80B' }} aria-hidden>{d.icon}</div>
-              <h3 style={{ fontSize: 20, fontWeight: 600, color: '#E5B80B', marginBottom: 8 }}>{d.title}</h3>
-              <p style={{ color: '#b3860b' }}>{d.desc}</p>
+            <div key={i} style={{ borderRadius: 16, background: '#1a1a1a', boxShadow: '0 4px 24px rgba(212, 175, 55, 0.08)', padding: 32, display: 'flex', flexDirection: 'column', alignItems: 'center', textAlign: 'center', border: '1px solid #D4AF37' }}>
+              <div style={{ fontSize: 32, marginBottom: 16, color: '#D4AF37' }} aria-hidden>{d.icon}</div>
+              <h3 style={{ fontSize: 20, fontWeight: 600, color: '#D4AF37', marginBottom: 8 }}>{d.title}</h3>
+              <p style={{ color: '#D4AF37' }}>{d.desc}</p>
             </div>
           ))}
         </div>

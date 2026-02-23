@@ -23,21 +23,21 @@ const testimonials = [
 
 export default function TestimonialsSection() {
   return (
-    <section style={{ background: '#fff', padding: '4rem 0' }}>
+    <section style={{ background: '#0d0d0d', padding: '4rem 0' }}>
       <div className="container">
-        <h2 style={{ fontSize: '2rem', color: '#E5B80B', fontWeight: 700, textAlign: 'center', marginBottom: 40, letterSpacing: '0.02em' }}>Institution Success Stories</h2>
+        <h2 style={{ fontSize: '2rem', color: '#D4AF37', fontWeight: 700, textAlign: 'center', marginBottom: 40, letterSpacing: '0.02em' }}>Institution Success Stories</h2>
         <div style={{ display: 'grid', gridTemplateColumns: 'repeat(auto-fit, minmax(220px, 1fr))', gap: 32 }}>
           {testimonials.map((t, i) => (
-            <div key={i} style={{ borderRadius: 16, background: '#fff', boxShadow: '0 4px 24px rgba(229, 184, 11, 0.08)', padding: 32, display: 'flex', flexDirection: 'column', alignItems: 'center', textAlign: 'center', border: '1px solid #E5B80B', minHeight: 370, justifyContent: 'flex-start' }}>
+            <div key={i} style={{ borderRadius: 16, background: '#1a1a1a', boxShadow: '0 4px 24px rgba(212, 175, 55, 0.08)', padding: 32, display: 'flex', flexDirection: 'column', alignItems: 'center', textAlign: 'center', border: '1px solid #D4AF37', minHeight: 370, justifyContent: 'flex-start' }}>
               <div style={{ display: 'flex', flexDirection: 'column', alignItems: 'center', marginBottom: 16 }}>
-                <img src={t.avatar} alt={t.name} style={{ width: 64, height: 64, borderRadius: '50%', marginBottom: t.principalPhoto ? 8 : 16, objectFit: 'cover', border: '4px solid #7C3AED22', background: '#fff' }} />
+                <img src={t.avatar} alt={t.name} style={{ width: 64, height: 64, borderRadius: '50%', marginBottom: t.principalPhoto ? 8 : 16, objectFit: 'cover', border: '4px solid #7C3AED22', background: '#0d0d0d' }} />
                 {t.principalPhoto && (
-                  <img src={t.principalPhoto} alt={t.title} style={{ width: 48, height: 48, borderRadius: '50%', marginBottom: 8, objectFit: 'cover', border: '2px solid #7C3AED22', background: '#fff' }} />
+                  <img src={t.principalPhoto} alt={t.title} style={{ width: 48, height: 48, borderRadius: '50%', marginBottom: 8, objectFit: 'cover', border: '2px solid #7C3AED22', background: '#0d0d0d' }} />
                 )}
               </div>
-              <blockquote style={{ color: '#444', fontStyle: 'italic', marginBottom: 16, minHeight: 60, display: 'flex', alignItems: 'center', justifyContent: 'center' }}>“{t.quote}”</blockquote>
-              <div style={{ fontWeight: 600, color: '#E5B80B', marginBottom: 2 }}>{t.name}</div>
-              <div style={{ fontSize: 14, color: '#888' }}>{t.title}</div>
+              <blockquote style={{ color: '#D4AF37', fontStyle: 'italic', marginBottom: 16, minHeight: 60, display: 'flex', alignItems: 'center', justifyContent: 'center' }}>“{t.quote}”</blockquote>
+              <div style={{ fontWeight: 600, color: '#D4AF37', marginBottom: 2 }}>{t.name}</div>
+              <div style={{ fontSize: 14, color: '#2d2d2d' }}>{t.title}</div>
             </div>
           ))}
         </div>

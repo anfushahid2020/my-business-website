@@ -36,7 +36,7 @@ const programs = [
 
 export default function ProgramsPreview() {
   return (
-    <section style={{ background: '#fff', padding: '4rem 0' }}>
+    <section style={{ background: '#0d0d0d', padding: '4rem 0' }}>
       <div className="container">
         {/* Featured Programs heading removed as requested */}
         {/* All program cards removed as requested */}

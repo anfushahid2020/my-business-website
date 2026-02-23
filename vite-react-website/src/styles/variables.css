@@ -1,0 +1,7 @@
+:root {
+  --color-gold: #D4AF37; /* New gold color */
+  --color-black: #000000; /* Black color */
+  --color-gray-dark: #1a1a1a; /* Dark gray for neutral backgrounds */
+  --color-gray-darker: #0d0d0d; /* Darker gray for accents */
+  --color-white: #000000; /* Replace white with black */
+}

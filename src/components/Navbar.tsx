@@ -13,7 +13,7 @@ export default function Navbar() {
   const { pathname } = useLocation();
   const isHome = pathname === '/';
   return (
-    <header style={{ position: 'sticky', top: 0, width: '100%', background: '#fff', borderBottom: '1px solid #E5B80B', boxShadow: '0 2px 8px rgba(229,184,11,0.08)', zIndex: 30 }}>
+    <header style={{ position: 'sticky', top: 0, width: '100%', background: '#000000', borderBottom: '1px solid #D4AF37', boxShadow: '0 2px 8px rgba(212,175,55,0.08)', zIndex: 30 }}>
       <div style={{ maxWidth: 1190, margin: '0 auto', display: 'flex', alignItems: 'center', justifyContent: 'space-between', padding: '1rem 2rem' }}>
         <div style={{ display: 'flex', alignItems: 'center', gap: 16 }}>
           <Link to="/" style={{ display: 'flex', alignItems: 'center' }}>
@@ -26,7 +26,7 @@ export default function Navbar() {
               key={link.to}
               to={link.to}
               style={{
-                color: '#E5B80B',
+                color: '#D4AF37',
                 textDecoration: 'none',
                 fontFamily: 'Inter, Arial, sans-serif',
                 fontSize: 22,

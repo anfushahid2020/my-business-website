@@ -1,0 +1,41 @@
+:root {
+    --gold: #D4AF37; /* Updated gold color */
+    --black: #000000; /* Updated black color */
+    --dark-gray: #1a1a1a; /* Dark gray for backgrounds */
+    --lighter-black: #0d0d0d; /* Lighter black for subtle backgrounds */
+}
+
+body {
+    background-color: var(--black);
+    color: var(--gold);
+}
+
+h1, h2, h3, h4, h5, h6 {
+    color: var(--gold);
+}
+
+a {
+    color: var(--gold);
+}
+
+button {
+    background-color: var(--gold);
+    color: var(--black);
+}
+
+.card {
+    background-color: var(--dark-gray);
+    color: var(--gold);
+}
+
+.header {
+    background-color: var(--black);
+    color: var(--gold);
+}
+
+.footer {
+    background-color: var(--dark-gray);
+    color: var(--gold);
+}
+
+/* Additional styles can be added here as needed */

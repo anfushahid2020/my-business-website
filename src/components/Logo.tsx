@@ -1,7 +1,7 @@
 import React from 'react';
 import { Link } from 'react-router-dom';
 
-// Gold color: #FFD700 (soft variant)
+// Gold color: #D4AF37 (brand gold)
 const Logo = () => (
   <Link to="/" style={{ display: 'inline-block' }}>
     <img
@@ -10,7 +10,7 @@ const Logo = () => (
       style={{
         width: '72px',
         height: '72px',
-        filter: 'drop-shadow(0 2px 8px rgba(229, 184, 11, 0.25))',
+        filter: 'drop-shadow(0 2px 8px rgba(212, 175, 55, 0.25))',
         zIndex: 2,
         background: 'transparent',
         borderRadius: '12px',
