@@ -8,9 +8,10 @@ const Chatbot: React.FC = () => {
   const [messages, setMessages] = useState([
     { sender: 'bot', text: `Hello! 👋 I am ${BOT_NAME}. How can I help you today?` }
   ]);
-  const [lead, setLead] = useState({ name: '', email: '', phone: '' });
+  const [, setLead] = useState({ name: '', email: '', phone: '' });
   // Set to 'done' to bypass lead-capture and enable chat immediately
-  const [leadStep, setLeadStep] = useState<'name' | 'email' | 'phone' | 'done'>('done');
+  type LeadStep = 'name' | 'email' | 'phone' | 'done';
+  const [leadStep, setLeadStep] = useState<LeadStep>('done');
   const [input, setInput] = useState('');
   const [loading, setLoading] = useState(false);
   const chatEndRef = useRef<HTMLDivElement>(null);
@@ -32,7 +33,7 @@ const Chatbot: React.FC = () => {
     if (!input.trim()) return;
     // Lead capture logic
     if (leadStep !== 'done') {
-      let nextStep: typeof leadStep = leadStep;
+      let nextStep: LeadStep = leadStep;
       if (leadStep === 'name') {
         setLead(l => ({ ...l, name: input }));
         setMessages(msgs => [...msgs, { sender: 'user', text: input }]);
@@ -83,7 +84,7 @@ const Chatbot: React.FC = () => {
         const reply = data?.reply ?? (data?.choices?.[0]?.message?.content) ?? 'Sorry, no reply received.';
         setMessages((msgs) => [...msgs, { sender: 'bot', text: reply }]);
       }
-    } catch (err) {
+    } catch (err: any) {
       const errText = err?.message || String(err);
       setMessages((msgs) => [...msgs, { sender: 'bot', text: `Request failed: ${errText}` }]);
     }

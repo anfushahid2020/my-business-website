@@ -3,7 +3,6 @@ import About from './pages/About';
 import './brand.css';
 import Navbar from './components/Navbar';
 import Chatbot from './components/Chatbot';
-import Logo from './components/Logo';
 import HeroSection from './components/HeroSection';
 import TrustStrip from './components/TrustStrip';
 import FeaturesSection from './components/FeaturesSection';

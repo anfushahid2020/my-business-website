@@ -1,46 +1,24 @@
 
 const programs = [
-  {
-    image: 'https://placehold.co/400x240/7C3AED/FFF?text=AI+Essentials',
-    title: 'AI Essentials',
-    level: 'Beginner',
-    duration: '4 weeks',
-    rating: 4.8,
-    students: 12000,
-  },
-  {
-    image: 'https://placehold.co/400x240/C4B5FD/111827?text=Data+Science',
-    title: 'Data Science Bootcamp',
-    level: 'Intermediate',
-    duration: '8 weeks',
-    rating: 4.7,
-    students: 8500,
-  },
-  {
-    image: 'https://placehold.co/400x240/6D28D9/FFF?text=Web+Dev',
-    title: 'Modern Web Development',
-    level: 'All Levels',
-    duration: '6 weeks',
-    rating: 4.9,
-    students: 15000,
-  },
-  {
-    image: 'https://placehold.co/400x240/F5F3FF/7C3AED?text=Business+Analytics',
-    title: 'Business Analytics',
-    level: 'Advanced',
-    duration: '5 weeks',
-    rating: 4.6,
-    students: 6000,
-  },
+  { title: 'AI Essentials', level: 'Beginner', duration: '4 weeks' },
+  { title: 'Data Science Bootcamp', level: 'Intermediate', duration: '8 weeks' },
+  { title: 'Modern Web Development', level: 'All Levels', duration: '6 weeks' },
+  { title: 'Business Analytics', level: 'Advanced', duration: '5 weeks' },
 ];
 
 export default function ProgramsPreview() {
   return (
     <section style={{ background: '#0d0d0d', padding: '4rem 0' }}>
       <div className="container">
-        {/* Featured Programs heading removed as requested */}
-        {/* All program cards removed as requested */}
-        {/* View All Programs link removed as requested */}
+        <h2 style={{ color: '#D4AF37', fontSize: 28, fontWeight: 700, marginBottom: 16 }}>Featured Programs</h2>
+        <div style={{ display: 'grid', gridTemplateColumns: 'repeat(auto-fit, minmax(220px, 1fr))', gap: 16 }}>
+          {programs.map((p) => (
+            <div key={p.title} style={{ background: '#0b0b0b', padding: 16, borderRadius: 12, border: '1px solid #2d2d2d' }}>
+              <h3 style={{ color: '#D4AF37', marginBottom: 8 }}>{p.title}</h3>
+              <div style={{ color: '#D4AF37', fontSize: 14 }}>{p.level} • {p.duration}</div>
+            </div>
+          ))}
+        </div>
       </div>
     </section>
   );

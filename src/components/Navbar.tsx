@@ -11,7 +11,6 @@ const navLinks = [
 
 export default function Navbar() {
   const { pathname } = useLocation();
-  const isHome = pathname === '/';
   return (
     <header style={{ position: 'sticky', top: 0, width: '100%', background: '#000000', borderBottom: '1px solid #D4AF37', boxShadow: '0 2px 8px rgba(212,175,55,0.08)', zIndex: 30 }}>
       <div style={{ maxWidth: 1190, margin: '0 auto', display: 'flex', alignItems: 'center', justifyContent: 'space-between', padding: '1rem 2rem' }}>
