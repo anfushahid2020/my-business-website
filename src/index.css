@@ -71,6 +71,9 @@ h1, h2, h3, h4, h5, h6 {
 /* small helper styles */
 .text-muted { color: #666666; }
 
+/* Grid helper: always use grid layout; columns are overridden per-breakpoint below */
+.grid-responsive { display: grid; grid-template-columns: 1fr; gap: 1rem; }
+
 /* ensure good contrast for accessibility */
 body, p, li, span { color: var(--text); }
 
