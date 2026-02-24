@@ -16,6 +16,13 @@
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
     <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;600;700&display=swap" rel="stylesheet">
+    <style>
+      /* Immediate desktop layout override to avoid stuck mobile layout */
+      html,body { background: #FFFFFF !important; color: #333333 !important; }
+      .container { max-width: 1200px; margin: 0 auto; padding: 2rem; }
+      img { max-width: 100%; height: auto; display: block; }
+      @media (min-width: 1024px) { .container { padding: 3rem; } }
+    </style>
   </head>
   <body>
     <div id="root"></div>
