@@ -103,12 +103,12 @@ const Chatbot: React.FC = () => {
           bottom: 32,
           right: 32,
           zIndex: 1000,
-          background: '#D4AF37',
+          background: 'var(--primary)',
           border: 'none',
           borderRadius: '50%',
           width: 64,
           height: 64,
-          boxShadow: '0 4px 24px rgba(212, 175, 55, 0.18)',
+          boxShadow: '0 4px 24px rgba(0, 51, 102, 0.18)',
           display: 'flex',
           alignItems: 'center',
           justifyContent: 'center',
@@ -129,14 +129,14 @@ const Chatbot: React.FC = () => {
             maxWidth: '90vw',
             background: '#0d0d0d',
             borderRadius: 16,
-            boxShadow: '0 8px 32px rgba(212, 175, 55, 0.18)',
+            boxShadow: '0 8px 32px rgba(0, 51, 102, 0.12)',
             zIndex: 1001,
             display: 'flex',
             flexDirection: 'column',
             overflow: 'hidden',
           }}
         >
-            <div style={{ background: '#D4AF37', color: '#000000', padding: '1rem', display: 'flex', alignItems: 'center', gap: 12 }}>
+            <div style={{ background: 'var(--primary)', color: '#ffffff', padding: '1rem', display: 'flex', alignItems: 'center', gap: 12 }}>
             <Logo />
             <span style={{ fontWeight: 700, fontSize: 18 }}>{BOT_NAME}</span>
             <span style={{ marginLeft: 'auto', cursor: 'pointer', fontWeight: 700 }} onClick={() => setOpen(false)}>&times;</span>
