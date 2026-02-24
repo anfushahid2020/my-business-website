@@ -127,7 +127,7 @@ const Chatbot: React.FC = () => {
             right: 32,
             width: 350,
             maxWidth: '90vw',
-            background: '#0d0d0d',
+            background: 'var(--bg)',
             borderRadius: 16,
             boxShadow: '0 8px 32px rgba(0, 51, 102, 0.12)',
             zIndex: 1001,
@@ -141,14 +141,14 @@ const Chatbot: React.FC = () => {
             <span style={{ fontWeight: 700, fontSize: 18 }}>{BOT_NAME}</span>
             <span style={{ marginLeft: 'auto', cursor: 'pointer', fontWeight: 700 }} onClick={() => setOpen(false)}>&times;</span>
           </div>
-            <div style={{ flex: 1, padding: '1rem', overflowY: 'auto', background: '#0d0d0d' }}>
+            <div style={{ flex: 1, padding: '1rem', overflowY: 'auto', background: 'var(--bg)' }}>
             {messages.map((msg, i) => (
               <div key={i} style={{ marginBottom: 12, textAlign: msg.sender === 'user' ? 'right' : 'left' }}>
                 <span
                   style={{
                     display: 'inline-block',
-                      background: msg.sender === 'user' ? '#D4AF37' : '#1a1a1a',
-                      color: msg.sender === 'user' ? '#000000' : '#D4AF37',
+                      background: msg.sender === 'user' ? 'var(--primary)' : '#f3f4f6',
+                      color: msg.sender === 'user' ? '#ffffff' : 'var(--text)',
                     borderRadius: 12,
                     padding: '8px 14px',
                     fontSize: 15,
@@ -162,17 +162,16 @@ const Chatbot: React.FC = () => {
             ))}
             <div ref={chatEndRef} />
           </div>
-            <form onSubmit={sendMessage} style={{ display: 'flex', borderTop: '1px solid #2d2d2d', background: '#0d0d0d' }}>
+            <form onSubmit={sendMessage} style={{ display: 'flex', borderTop: '1px solid var(--card-border)', background: 'var(--bg)' }}>
             <input
               type="text"
               ref={inputRef}
               value={input}
               onChange={e => setInput(e.target.value)}
               placeholder={loading ? 'Waiting for reply...' : 'Type your message...'}
-              
-                style={{ flex: 1, border: 'none', padding: '1rem', fontSize: 15, outline: 'none', background: '#0d0d0d', color: '#D4AF37' }}
+                style={{ flex: 1, border: 'none', padding: '1rem', fontSize: 15, outline: 'none', background: 'transparent', color: 'var(--text)' }}
             />
-              <button type="submit" disabled={loading || !input.trim()} style={{ background: '#D4AF37', color: '#000000', border: 'none', padding: '0 18px', fontWeight: 700, fontSize: 16, borderRadius: 0, cursor: 'pointer' }}>
+              <button type="submit" disabled={loading || !input.trim()} style={{ background: 'var(--primary)', color: '#ffffff', border: 'none', padding: '0 18px', fontWeight: 700, fontSize: 16, borderRadius: 0, cursor: 'pointer' }}>
               Send
             </button>
           </form>
