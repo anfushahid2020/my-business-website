@@ -111,6 +111,20 @@ img[src*="/logo.png"] { width: 2rem; height: 2rem; object-fit: contain; max-widt
 @media (min-width: 640px) { img[src*="/logo.png"] { width: 2.5rem; height: 2.5rem; } }
 @media (min-width: 1024px) { img[src*="/logo.png"] { width: 3rem; height: 3rem; } }
 
+/* Testimonials: sensible institution and principal icon sizing */
+.institution-avatar { width: 2.5rem; height: 2.5rem; }
+.principal-photo { width: 2rem; height: 2rem; }
+
+@media (min-width: 640px) {
+  .institution-avatar { width: 3rem; height: 3rem; }
+  .principal-photo { width: 2.25rem; height: 2.25rem; }
+}
+
+@media (min-width: 1024px) {
+  .institution-avatar { width: 3.5rem; height: 3.5rem; }
+  .principal-photo { width: 2.5rem; height: 2.5rem; }
+}
+
 /* Fallback navigation styling when utility CSS (Tailwind) isn't applied */
 /* Site header styling */
 .site-header { background: var(--primary); box-shadow: 0 6px 18px rgba(0,0,0,0.08); }

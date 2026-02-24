@@ -30,9 +30,9 @@ export default function TestimonialsSection() {
           {testimonials.map((t, i) => (
             <div key={i} className="card flex flex-col items-center text-center p-6 min-h-[220px]">
               <div className="flex flex-col items-center mb-4">
-                <img src={t.avatar} alt={t.name} className="w-16 h-16 rounded-full mb-2 img-responsive" />
+                <img src={t.avatar} alt={t.name} className="institution-avatar rounded-full mb-2 img-responsive" />
                 {t.principalPhoto && (
-                  <img src={t.principalPhoto} alt={t.title} className="w-12 h-12 rounded-full mb-2 img-responsive" />
+                  <img src={t.principalPhoto} alt={t.title} className="principal-photo rounded-full mb-2 img-responsive" />
                 )}
               </div>
               <blockquote className="italic text-deep-gray mb-4">“{t.quote}”</blockquote>
