@@ -1,5 +1,6 @@
 import { Link } from 'react-router-dom';
 import Logo from './Logo';
+import { useState } from 'react';
 
 const navLinks = [
     { to: '/', label: 'Home' },
@@ -10,36 +11,50 @@ const navLinks = [
 ];
 
 export default function Navbar() {
+  const [open, setOpen] = useState(false);
+
   return (
-    <header style={{ position: 'sticky', top: 0, width: '100%', background: '#003366', boxShadow: '0 6px 18px rgba(0,0,0,0.12)', zIndex: 30 }}>
-      <div style={{ maxWidth: 1190, margin: '0 auto', display: 'flex', alignItems: 'center', justifyContent: 'space-between', padding: '0.6rem 1.5rem' }}>
-        <div style={{ display: 'flex', alignItems: 'center', gap: 12 }}>
-          <Link to="/" style={{ display: 'flex', alignItems: 'center' }}>
+    <header className="sticky top-0 w-full bg-primary shadow-lg z-30">
+      <div className="max-w-6xl mx-auto flex items-center justify-between p-3 md:p-4">
+        <div className="flex items-center gap-3">
+          <Link to="/" className="flex items-center">
             <Logo />
           </Link>
         </div>
-        <nav style={{ display: 'flex', gap: 22, fontSize: 18, fontWeight: 600, fontFamily: 'Inter, Arial, sans-serif' }}>
+
+        {/* Desktop nav */}
+        <nav className="hidden md:flex items-center gap-6 text-white font-semibold text-sm">
           {navLinks.map(link => (
             <Link
               key={link.to}
               to={link.to}
-              style={{
-                color: '#FFFFFF',
-                textDecoration: 'none',
-                fontFamily: 'Inter, Arial, sans-serif',
-                fontSize: 16,
-                padding: '0.35em 0.75em',
-                borderRadius: '6px',
-                transition: 'background 0.15s, color 0.15s',
-              }}
-              onMouseEnter={e => (e.currentTarget.style.color = '#1a5f99')}
-              onMouseLeave={e => (e.currentTarget.style.color = '#FFFFFF')}
+              className="text-white hover:text-primary-light px-2 py-1 rounded"
             >
               {link.label}
             </Link>
           ))}
         </nav>
+
+        {/* Mobile hamburger */}
+        <div className="md:hidden">
+          <button aria-label="Toggle menu" onClick={() => setOpen(v => !v)} className="p-2 text-white">
+            <svg className="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg"><path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d={open ? "M6 18L18 6M6 6l12 12" : "M4 6h16M4 12h16M4 18h16"} /></svg>
+          </button>
+        </div>
       </div>
+
+      {/* Mobile menu panel */}
+      {open && (
+        <div className="md:hidden bg-primary px-4 pb-4">
+          <nav className="flex flex-col gap-2">
+            {navLinks.map(link => (
+              <Link key={link.to} to={link.to} className="block text-white py-2 px-3 rounded hover:text-primary-light" onClick={() => setOpen(false)}>
+                {link.label}
+              </Link>
+            ))}
+          </nav>
+        </div>
+      )}
     </header>
   );
 }

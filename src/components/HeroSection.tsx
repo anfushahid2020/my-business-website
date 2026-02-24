@@ -1,17 +1,15 @@
 
 export default function HeroSection() {
   return (
-    <section style={{ display: 'flex', flexWrap: 'wrap', alignItems: 'center', justifyContent: 'space-between', gap: 40, padding: '4rem 0' }}>
-      <div style={{ flex: 1, zIndex: 1, minWidth: 320 }}>
-        <h1 style={{ fontSize: '2.5rem', color: '#D4AF37', fontWeight: 700, marginBottom: 24, lineHeight: 1.1 }}>
-           The Ultimate Digital Solution for Educational Institutes
+    <section className="flex flex-col md:flex-row items-center justify-between gap-8 py-12">
+      <div className="flex-1 z-10 min-w-0">
+        <h1 className="text-3xl md:text-4xl lg:text-5xl font-extrabold text-primary leading-tight mb-6">
+          The Ultimate Digital Solution for Educational Institutes
         </h1>
-        <p style={{ fontSize: '1.25rem', color: '#D4AF37', marginBottom: 32, maxWidth: 480 }}>
+        <p className="text-base md:text-lg text-deep-gray mb-8 max-w-xl">
           We help educational institutes grow their business and deliver exceptional online education. Get the best UI/UX, interactive quiz tests, smart chatbots, and everything you need to engage students and succeed in the digital era.
         </p>
-        {/* Watch Demo button and credit card info removed as requested */}
       </div>
-      {/* Removed dashboard mockup for a cleaner hero section */}
     </section>
   );
 }
