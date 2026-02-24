@@ -6,7 +6,7 @@ const Logo = () => (
     <img
       src="/logo.png"
       alt="Business Logo"
-      className="w-10 h-10 rounded-md bg-transparent"
+      className="site-logo rounded-md bg-transparent"
       style={{ transition: 'transform 0.15s' }}
     />
   </Link>

@@ -95,4 +95,77 @@ body, p, li, span { color: var(--text); }
 /* Images responsive */
 .img-responsive { max-width: 100%; height: auto; display: block; }
 
+/* Site-wide responsive logo/icon sizing (mobile → desktop) */
+.site-logo { width: 2rem; height: 2rem; max-width: 100%; object-fit: contain; }
+
+@media (min-width: 640px) {
+  .site-logo { width: 2.5rem; height: 2.5rem; }
+}
+
+@media (min-width: 1024px) {
+  .site-logo { width: 3rem; height: 3rem; }
+}
+
+/* Ensure any direct uses of the same public logo file are kept sane */
+img[src*="/logo.png"] { width: 2rem; height: 2rem; object-fit: contain; max-width: none; }
+@media (min-width: 640px) { img[src*="/logo.png"] { width: 2.5rem; height: 2.5rem; } }
+@media (min-width: 1024px) { img[src*="/logo.png"] { width: 3rem; height: 3rem; } }
+
+/* Fallback navigation styling when utility CSS (Tailwind) isn't applied */
+/* Site header styling */
+.site-header { background: var(--primary); box-shadow: 0 6px 18px rgba(0,0,0,0.08); }
+.site-header-inner { display: flex; align-items: center; justify-content: space-between; padding: 1.125rem 1rem; }
+.brand-link { display: flex; align-items: center; gap: 0.5rem; }
+.brand-link .site-logo { display: block; }
+
+/* Keep the title vertically centered and match logo height so top/bottom align */
+.site-title {
+  display: inline-flex;
+  align-items: center;
+  height: 2rem; /* matches .site-logo default */
+  line-height: 1;
+  font-size: 1rem;
+  letter-spacing: 0.2px;
+  color: #ffffff !important;
+  opacity: 0.98;
+}
+
+/* Increase header vertical space by ~50% from previous defaults
+   Mobile: padding 1.125rem (approx 0.75rem * 1.5)
+   Desktop: padding 1.5rem (approx 1rem * 1.5) */
+@media (min-width: 768px) {
+  .site-header-inner { padding: 1.5rem 1.5rem; }
+  .site-title { font-size: 1.05rem; }
+}
+
+@media (min-width: 640px) {
+  .site-title { height: 2.5rem; }
+}
+
+@media (min-width: 1024px) {
+  .site-title { height: 3rem; }
+}
+
+/* Fallback navigation styling when utility CSS (Tailwind) isn't applied */
+.desktop-nav { display: none; align-items: center; gap: 1rem; }
+.desktop-nav .nav-link { color: #ffffff !important; padding: 0.35rem 0.6rem; border-radius: 0.375rem; text-decoration: none; display: inline-block; font-weight:600; }
+.desktop-nav .nav-link:hover { background: rgba(255,255,255,0.06); color: #ffffff !important; }
+.desktop-nav .nav-link + .nav-link { margin-left: 0.5rem; }
+
+.mobile-toggle-button { display: inline-block; }
+.mobile-toggle-button .mobile-ham { width: 22px; height: 22px; color: #ffffff; }
+
+.mobile-panel { display: none; }
+.mobile-panel.open { display: block; padding: 0.5rem 1rem; background: var(--primary); }
+.mobile-panel-nav { display: flex; flex-direction: column; gap: 0.5rem; }
+.mobile-panel-nav .mobile-nav-link { color: white; padding: 0.5rem 0.75rem; border-radius: 6px; text-decoration: none; display:block; }
+.mobile-panel-nav .mobile-nav-link:hover { background: rgba(255,255,255,0.06); }
+
+/* Responsive: show desktop nav on medium+ screens, hide mobile toggle on desktop */
+@media (min-width: 768px) {
+  .desktop-nav { display: flex; }
+  .mobile-toggle-button { display: none !important; }
+  .mobile-panel { display: none !important; }
+}
+
 

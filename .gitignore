@@ -26,3 +26,6 @@ server/.env
 
 # Ignore root env file
 .env
+
+.vercel
+.env*.local
