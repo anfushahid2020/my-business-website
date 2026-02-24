@@ -64,7 +64,14 @@ const Chatbot: React.FC = () => {
     setInput('');
     setLoading(true);
     try {
-      const apiUrl = 'http://localhost:5000/api/chat';
+      // Use localhost backend during local development, otherwise use relative
+      // `/api/chat` so the production/mobile client hits the deployed server
+      const apiUrl = ((): string => {
+        if (typeof window === 'undefined') return '/api/chat';
+        const host = window.location.hostname;
+        if (host === 'localhost' || host === '127.0.0.1') return 'http://localhost:5000/api/chat';
+        return '/api/chat';
+      })();
       const res = await fetch(apiUrl, {
         method: 'POST',
         headers: { 'Content-Type': 'application/json' },
@@ -138,7 +145,7 @@ const Chatbot: React.FC = () => {
         >
             <div style={{ background: 'var(--primary)', color: '#ffffff', padding: '1rem', display: 'flex', alignItems: 'center', gap: 12 }}>
             <Logo />
-            <span style={{ fontWeight: 700, fontSize: 18 }}>{BOT_NAME}</span>
+            <span style={{ fontWeight: 700, fontSize: 18, color: '#ffffff' }}>{BOT_NAME}</span>
             <span style={{ marginLeft: 'auto', cursor: 'pointer', fontWeight: 700 }} onClick={() => setOpen(false)}>&times;</span>
           </div>
             <div style={{ flex: 1, padding: '1rem', overflowY: 'auto', background: 'var(--bg)' }}>
