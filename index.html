@@ -22,6 +22,17 @@
       .container { max-width: 1200px; margin: 0 auto; padding: 2rem; }
       img { max-width: 100%; height: auto; display: block; }
       @media (min-width: 1024px) { .container { padding: 3rem; } }
+      /* Ensure logo image isn't rendered oversized or positioned absolutely */
+      img[src*="/logo.png"] {
+        width: 40px !important;
+        height: 40px !important;
+        max-width: 40px !important;
+        position: relative !important;
+        top: auto !important;
+        left: auto !important;
+        margin: 0 !important;
+        transform: none !important;
+      }
     </style>
   </head>
   <body>
