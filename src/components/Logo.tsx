@@ -7,14 +7,13 @@ const Logo = () => (
       src="/logo.png"
       alt="Business Logo"
       style={{
-        width: '72px',
-        height: '72px',
-        filter: 'drop-shadow(0 2px 8px rgba(212, 175, 55, 0.25))',
+        width: '40px',
+        height: '40px',
         zIndex: 2,
         background: 'transparent',
-        borderRadius: '12px',
+        borderRadius: '8px',
         display: 'block',
-        margin: '0 auto',
+        margin: '0',
         transition: 'transform 0.15s',
       }}
     />
