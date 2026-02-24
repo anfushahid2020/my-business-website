@@ -44,42 +44,30 @@ const plans = [
 
 export default function PricingPreview() {
   return (
-    <section style={{ background: '#0d0d0d', padding: '4rem 0' }}>
+    <section className="py-12">
       <div className="container">
-        <h2 style={{ fontSize: '2rem', color: '#D4AF37', fontWeight: 700, textAlign: 'center', marginBottom: 40, letterSpacing: '0.02em' }}>Pricing Plans</h2>
-        <div style={{ display: 'grid', gridTemplateColumns: 'repeat(auto-fit, minmax(260px, 1fr))', gap: 32 }}>
+        <h2 className="text-2xl md:text-3xl text-primary font-bold text-center mb-10">Pricing Plans</h2>
+        <div className="grid-responsive">
           {plans.map((plan) => (
             <div
               key={plan.name}
-              style={{
-                borderRadius: 16,
-                border: plan.highlight ? '2px solid #D4AF37' : '1px solid #D4AF37',
-                background: plan.highlight ? '#D4AF37' : '#1a1a1a',
-                color: plan.highlight ? '#000000' : '#D4AF37',
-                boxShadow: '0 4px 24px rgba(212, 175, 55, 0.08)',
-                padding: 32,
-                display: 'flex',
-                flexDirection: 'column',
-                alignItems: 'center',
-                textAlign: 'center',
-                transform: plan.highlight ? 'scale(1.05)' : 'none',
-                zIndex: plan.highlight ? 10 : 1,
-              }}
+              className={`card flex flex-col items-center p-6 ${plan.highlight ? 'border-2' : ''}`}
+              style={{ transform: plan.highlight ? 'scale(1.03)' : 'none', zIndex: plan.highlight ? 10 : 1 }}
             >
-              <div style={{ fontSize: 18, fontWeight: 700, marginBottom: 8, textTransform: 'uppercase', letterSpacing: 1, color: plan.highlight ? '#000000' : '#D4AF37' }}>{plan.name}</div>
-              <div style={{ fontSize: 32, fontWeight: 800, marginBottom: 16, color: plan.highlight ? '#000000' : '#D4AF37' }}>
+              <div className="uppercase tracking-wide text-sm font-bold mb-2 text-primary">{plan.name}</div>
+              <div className="text-2xl font-extrabold mb-4 text-primary">
                 {plan.price === 0 ? 'Free' : `$${plan.price}`}
-                <span style={{ fontSize: 16, fontWeight: 500, marginLeft: 4, color: plan.highlight ? '#000000' : '#D4AF37' }}>/ {plan.period}</span>
+                <span className="text-base font-medium text-deep-gray">/ {plan.period}</span>
               </div>
-              <ul style={{ marginBottom: 24, textAlign: 'left', width: '100%', maxWidth: 240, marginInline: 'auto', padding: 0, listStyle: 'none' }}>
+              <ul className="mb-6 text-left w-full max-w-xs mx-auto list-none p-0">
                 {plan.features.map((f, j) => (
-                  <li key={j} style={{ display: 'flex', alignItems: 'center', gap: 8, marginBottom: 8 }}>
-                    <span style={{ display: 'inline-block', width: 8, height: 8, borderRadius: 4, background: plan.highlight ? '#000000' : '#D4AF37' }} />
-                    <span style={{ color: plan.highlight ? '#000000' : '#D4AF37' }}>{f}</span>
+                  <li key={j} className="flex items-center gap-3 mb-2">
+                    <span className={`inline-block w-2 h-2 rounded-full ${plan.highlight ? 'bg-primary' : 'bg-primary'}`} />
+                    <span className="text-deep-gray">{f}</span>
                   </li>
                 ))}
               </ul>
-              <button className="btn" style={{ marginTop: 'auto', width: '100%', background: plan.highlight ? '#000000' : '#D4AF37', color: plan.highlight ? '#D4AF37' : '#000000', fontWeight: 700 }}>
+              <button className="btn w-full" style={{ marginTop: 'auto' }}>
                 {plan.cta}
               </button>
             </div>

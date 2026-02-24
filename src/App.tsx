@@ -14,24 +14,23 @@ import PricingPreview from './components/PricingPreview';
 
 const Programs = () => <div className="p-8">Programs Page</div>;
 const Institutions = () => (
-  <div style={{ maxWidth: 800, margin: '40px auto', padding: '48px 24px', background: '#0d0d0d', borderRadius: 16, boxShadow: '0 4px 24px rgba(212, 175, 55, 0.08)' }}>
-    <h1 style={{ fontSize: 36, fontWeight: 700, color: '#D4AF37', marginBottom: 24, letterSpacing: '0.02em', textAlign: 'center' }}>For Institutions</h1>
-    <p style={{ fontSize: 20, color: '#D4AF37', marginBottom: 24, textAlign: 'center' }}>
+  <div className="max-w-3xl mx-auto mt-10 p-6 bg-white rounded-lg shadow-md">
+    <h1 className="text-3xl font-bold text-primary text-center mb-4">For Institutions</h1>
+    <p className="text-deep-gray text-lg text-center mb-4">
       Discover tools and features designed for educational institutions to manage, track, and enhance learning outcomes.
     </p>
-    {/* Add more institution-specific content here */}
   </div>
 );
 const Pricing = () => <div className="p-8">Pricing Page</div>;
 // About page is now imported from ./pages/About
 const Resources = () => <div className="p-8">Resources Page</div>;
 const Login = () => (
-  <div style={{ maxWidth: 400, margin: '60px auto', padding: '32px', background: '#0d0d0d', borderRadius: 16, boxShadow: '0 4px 24px rgba(212, 175, 55, 0.08)' }}>
-    <h2 style={{ fontSize: 28, fontWeight: 700, color: '#D4AF37', marginBottom: 24, textAlign: 'center' }}>Login</h2>
+  <div className="max-w-md mx-auto mt-12 p-6 bg-white rounded-lg shadow-md">
+    <h2 className="text-2xl font-bold text-primary text-center mb-4">Login</h2>
     <form>
-      <input type="email" placeholder="Email" style={{ width: '100%', padding: '12px', marginBottom: 16, borderRadius: 8, border: '1px solid #D4AF37', fontSize: 16, background: '#0d0d0d', color: '#D4AF37' }} />
-      <input type="password" placeholder="Password" style={{ width: '100%', padding: '12px', marginBottom: 24, borderRadius: 8, border: '1px solid #D4AF37', fontSize: 16, background: '#0d0d0d', color: '#D4AF37' }} />
-      <button type="submit" className="btn" style={{ width: '100%', background: '#D4AF37', color: '#000000', fontWeight: 700, fontSize: 18, borderRadius: 8, padding: '12px' }}>Login</button>
+      <input type="email" placeholder="Email" className="w-full p-3 mb-4 rounded border" />
+      <input type="password" placeholder="Password" className="w-full p-3 mb-4 rounded border" />
+      <button type="submit" className="btn w-full">Login</button>
     </form>
   </div>
 )
@@ -40,7 +39,7 @@ const Login = () => (
 function App() {
   return (
     <>
-      <div style={{ minHeight: '100vh', background: '#000000', color: '#D4AF37', fontFamily: 'Inter, Arial, sans-serif' }}>
+      <div style={{ minHeight: '100vh', fontFamily: 'Inter, Arial, sans-serif' }}>
         <Navbar />
         <div className="container">
           <Routes>

@@ -8,14 +8,14 @@ const programs = [
 
 export default function ProgramsPreview() {
   return (
-    <section style={{ background: '#0d0d0d', padding: '4rem 0' }}>
+    <section className="py-12">
       <div className="container">
-        <h2 style={{ color: '#D4AF37', fontSize: 28, fontWeight: 700, marginBottom: 16 }}>Featured Programs</h2>
-        <div style={{ display: 'grid', gridTemplateColumns: 'repeat(auto-fit, minmax(220px, 1fr))', gap: 16 }}>
+        <h2 className="text-2xl md:text-3xl text-primary font-bold mb-6">Featured Programs</h2>
+        <div className="grid-responsive">
           {programs.map((p) => (
-            <div key={p.title} style={{ background: '#0b0b0b', padding: 16, borderRadius: 12, border: '1px solid #2d2d2d' }}>
-              <h3 style={{ color: '#D4AF37', marginBottom: 8 }}>{p.title}</h3>
-              <div style={{ color: '#D4AF37', fontSize: 14 }}>{p.level} • {p.duration}</div>
+            <div key={p.title} className="card p-4">
+              <h3 className="text-primary font-semibold mb-2">{p.title}</h3>
+              <div className="text-deep-gray text-sm">{p.level} • {p.duration}</div>
             </div>
           ))}
         </div>

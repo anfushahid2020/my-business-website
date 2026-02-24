@@ -23,21 +23,21 @@ const testimonials = [
 
 export default function TestimonialsSection() {
   return (
-    <section style={{ background: '#0d0d0d', padding: '4rem 0' }}>
+    <section className="py-12">
       <div className="container">
-        <h2 style={{ fontSize: '2rem', color: '#D4AF37', fontWeight: 700, textAlign: 'center', marginBottom: 40, letterSpacing: '0.02em' }}>Institution Success Stories</h2>
-        <div style={{ display: 'grid', gridTemplateColumns: 'repeat(auto-fit, minmax(220px, 1fr))', gap: 32 }}>
+        <h2 className="text-2xl md:text-3xl text-primary font-bold text-center mb-10">Institution Success Stories</h2>
+        <div className="grid-responsive">
           {testimonials.map((t, i) => (
-            <div key={i} style={{ borderRadius: 16, background: '#1a1a1a', boxShadow: '0 4px 24px rgba(212, 175, 55, 0.08)', padding: 32, display: 'flex', flexDirection: 'column', alignItems: 'center', textAlign: 'center', border: '1px solid #D4AF37', minHeight: 370, justifyContent: 'flex-start' }}>
-              <div style={{ display: 'flex', flexDirection: 'column', alignItems: 'center', marginBottom: 16 }}>
-                <img src={t.avatar} alt={t.name} style={{ width: 64, height: 64, borderRadius: '50%', marginBottom: t.principalPhoto ? 8 : 16, objectFit: 'cover', border: '4px solid #7C3AED22', background: '#0d0d0d' }} />
+            <div key={i} className="card flex flex-col items-center text-center p-6 min-h-[220px]">
+              <div className="flex flex-col items-center mb-4">
+                <img src={t.avatar} alt={t.name} className="w-16 h-16 rounded-full mb-2 img-responsive" />
                 {t.principalPhoto && (
-                  <img src={t.principalPhoto} alt={t.title} style={{ width: 48, height: 48, borderRadius: '50%', marginBottom: 8, objectFit: 'cover', border: '2px solid #7C3AED22', background: '#0d0d0d' }} />
+                  <img src={t.principalPhoto} alt={t.title} className="w-12 h-12 rounded-full mb-2 img-responsive" />
                 )}
               </div>
-              <blockquote style={{ color: '#D4AF37', fontStyle: 'italic', marginBottom: 16, minHeight: 60, display: 'flex', alignItems: 'center', justifyContent: 'center' }}>“{t.quote}”</blockquote>
-              <div style={{ fontWeight: 600, color: '#D4AF37', marginBottom: 2 }}>{t.name}</div>
-              <div style={{ fontSize: 14, color: '#2d2d2d' }}>{t.title}</div>
+              <blockquote className="italic text-deep-gray mb-4">“{t.quote}”</blockquote>
+              <div className="font-semibold text-primary mb-1">{t.name}</div>
+              <div className="text-sm text-deep-gray">{t.title}</div>
             </div>
           ))}
         </div>
