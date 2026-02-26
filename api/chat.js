@@ -1,3 +1,73 @@
+const path = require('path');
+const fs = require('fs');
+const OpenAI = require('openai');
+
+module.exports = async (req, res) => {
+  if (req.method !== 'POST') return res.status(405).json({ error: 'Method Not Allowed' });
+  try {
+    const body = req.body || (await new Promise(r => { let d=''; req.on('data',c=>d+=c); req.on('end',()=>r(JSON.parse(d))); }));
+    const messages = body.messages || [];
+    const businessPath = path.join(process.cwd(), 'server', 'business.txt');
+    const businessInfo = fs.existsSync(businessPath) ? fs.readFileSync(businessPath, 'utf8') : '';
+
+    // Build a short system message
+    const systemMessage = {
+      role: 'system',
+      content: `You are a friendly assistant for WebDemics. Use the authoritative business facts below when answering concise factual questions. Business Info:\n${businessInfo}`
+    };
+
+    const lastUser = messages.slice().reverse().find(m => m.role === 'user');
+    const userContent = lastUser ? String(lastUser.content || '') : '';
+    const lc = userContent.toLowerCase();
+
+    // simple extractors
+    const extractLine = (label) => {
+      const re = new RegExp('^' + label + '\\s*[:\\-]\\s*(.+)$', 'im');
+      const m = businessInfo.match(re);
+      return m ? m[1].trim() : null;
+    };
+
+    const name = extractLine('Name') || 'WebDemics';
+    const owner = extractLine('Owner') || null;
+    const email = extractLine('Contact Email') || extractLine('Email') || null;
+    const whatsapp = extractLine('WhatsApp') || extractLine('Phone') || null;
+
+    const formatReply = (body) => `Based on our business information, ${body}`;
+
+    if (lc.includes('business name') || (lc.includes('name') && lc.includes('business'))) {
+      return res.json({ reply: formatReply(`The business name is ${name}.`) });
+    }
+    if (lc.includes('owner') || lc.includes("who is the owner")) {
+      if (owner) return res.json({ reply: formatReply(`The owner is ${owner}.`) });
+    }
+    if (lc.includes('email') || lc.includes('contact email')) {
+      if (email) return res.json({ reply: formatReply(`You can reach us at ${email}.`) });
+    }
+    if (lc.includes('whatsapp') || lc.includes('phone') || lc.includes('contact number')) {
+      if (whatsapp) return res.json({ reply: formatReply(`Our contact number / WhatsApp is ${whatsapp}.`) });
+    }
+
+    // fallback to OpenAI
+    const OPENAI_API_KEY = process.env.OPENAI_API_KEY;
+    if (!OPENAI_API_KEY) {
+      return res.json({ reply: `OpenAI is not configured. Please contact support at ${email || 'anfushahid2020@gmail.com'}` });
+    }
+    const openai = new OpenAI({ apiKey: OPENAI_API_KEY });
+
+    const messagesToSend = [systemMessage, { role: 'user', content: userContent || 'Hello' }];
+    const completion = await openai.chat.completions.create({
+      model: 'gpt-3.5-turbo',
+      messages: messagesToSend,
+      max_tokens: 500,
+      temperature: 0.7,
+    });
+    const reply = completion.choices?.[0]?.message?.content ?? '';
+    return res.json({ reply });
+  } catch (err) {
+    console.error('api/chat error:', err);
+    return res.status(500).json({ error: String(err?.message || err) });
+  }
+};
 const fs = require('fs');
 const path = require('path');
 const OpenAI = require('openai');
