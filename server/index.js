@@ -98,33 +98,33 @@ const messagesToSend = [
       return reply;
     };
 
-    // Direct fact answers
-    if (lc.match(/\\b(business name|what is (?:the )?business name|what is webdemics|my business name)\\b/)) {
+    // Direct fact answers (more permissive contains checks to avoid missed matches)
+    if (lc.includes('business name') || lc.includes('what is webdemics') || (lc.includes('name') && lc.includes('business'))) {
       const resp = `The business name is ${name}.`;
       return res.json({ reply: formatReply(resp) });
     }
-    if (lc.match(/\\b(owner|who is the owner|who's the owner)\\b/)) {
+    if (lc.includes('owner') || lc.includes("who is the owner") || lc.includes("who's the owner")) {
       if (owner) return res.json({ reply: formatReply(`The owner is ${owner}.`) });
     }
-    if (lc.match(/\\b(email|contact email|email address)\\b/)) {
+    if (lc.includes('email') || lc.includes('contact email') || lc.includes('email address')) {
       if (email) return res.json({ reply: formatReply(`You can reach us at ${email}.`) });
     }
-    if (lc.match(/\\b(whatsapp|phone|mobile|contact number)\\b/)) {
+    if (lc.includes('whatsapp') || lc.includes('phone') || lc.includes('mobile') || lc.includes('contact number')) {
       if (whatsapp) return res.json({ reply: formatReply(`Our contact number / WhatsApp is ${whatsapp}.`) });
     }
-    if (lc.match(/\\b(purpose|aim|goal)\\b/)) {
+    if (lc.includes('purpose') || lc.includes('aim') || lc.includes('goal')) {
       if (purpose) return res.json({ reply: formatReply(purpose) });
     }
-    if (lc.match(/\\b(service|services|offer|courses|what do you offer)\\b/)) {
+    if (lc.includes('service') || lc.includes('services') || lc.includes('offer') || lc.includes('courses') || lc.includes('what do you offer')) {
       if (services && services.length) {
-        const bullets = services.map(s => `- ${s}`).join('\\n');
-        const body = `Our services include:\\n${bullets}`;
+        const bullets = services.map(s => `- ${s}`).join('\n');
+        const body = `Our services include:\n${bullets}`;
         return res.json({ reply: formatReply(body) });
       }
     }
-    if (lc.match(/\\b(target|customers|who (?:are|is) your customers)\\b/)) {
+    if (lc.includes('target') || lc.includes('customers') || lc.includes('who are your customers') || lc.includes('who is your customer')) {
       if (target && target.length) {
-        const body = `Target customers:\\n${target.map(t => `- ${t}`).join('\\n')}`;
+        const body = `Target customers:\n${target.map(t => `- ${t}`).join('\n')}`;
         return res.json({ reply: formatReply(body) });
       }
     }

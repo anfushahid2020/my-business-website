@@ -6,6 +6,5 @@ for /f "tokens=5" %%a in ('netstat -ano ^| findstr :5000') do (
   taskkill /PID %%a /F >nul 2>&1
 )
 echo Starting server...
-start cmd /k node .\index.js
-echo Done. A new window will show server logs.
-pause
+start "WebDemics" cmd /c "node .\index.js"
+echo Done. Server started in a new window.
